@@ -7,10 +7,6 @@ namespace GitExercise
         private const string Password = "abcd1234";
         public static void Main()
         {
-<<<<<<< HEAD
-           
-            while (true)
-=======
             bool isAuthorized = CheckCredentials();
 
             if (!isAuthorized)
@@ -20,85 +16,65 @@ namespace GitExercise
                 return;
             }
 
-            Console.WriteLine("Console Calculator App");
-            Console.WriteLine(new string('-', 15));
 
-            Console.Write("a = ");
-            double a = double.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
-
-            Console.Write("b = ");
-            double b = double.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
-
-            Console.WriteLine("Choose one from the listed options:");
-            foreach (string option in OptionsManager.OptionsList)
->>>>>>> Dev-A
+            while (true)
             {
-                Console.Clear();
-                Console.WriteLine("Console calculator app");
-                Console.WriteLine(new string('-', 15));
                 Console.WriteLine("Console Calculator App");
                 Console.WriteLine(new string('-', 15));
 
                 Console.Write("a = ");
                 double a = double.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-<<<<<<< HEAD
                 Console.Write("b = ");
                 double b = double.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
                 Console.WriteLine("Choose one from the listed options:");
                 foreach (string option in OptionsManager.OptionsList)
-                {
-                    Console.WriteLine($"\t{option}");
+                    {
+                        Console.WriteLine($"\t{option}");
+                    }
+
+                    Console.Write("Option: ");
+                    string choice = Console.ReadLine();
+                    switch (choice)
+                    {
+                        case "a":
+                            OptionsManager.Add(a, b);
+                            break;
+                        case "s":
+                            OptionsManager.Subtract(a, b);
+                            break;
+                        case "m":
+                            OptionsManager.Multiply(a, b);
+                            break;
+                        case "dr":
+                            OptionsManager.DivideRemainder(a, b);
+                            break;
+                        case "d":
+                            OptionsManager.Divide(a, b);
+                            break;
+                        case "sabs":
+                            OptionsManager.SubtractAbs(a, b);
+                            break;
+                        case "ex":
+                            Console.Clear();
+                            Console.WriteLine("Goodbye");
+                            Console.ReadKey(true);
+                            return;
+
                 }
 
-                Console.Write("Option: ");
-                string choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "a":
-                        OptionsManager.Add(a, b);
-                        break;
-                    case "s":
-                        OptionsManager.Subtract(a, b);
-                        break;
-                    case "m":
-                        OptionsManager.Multiply(a, b);
-                        break;
-                    case "dr":
-                        OptionsManager.DivideRemainder(a, b);
-                        break;
-                    case "ex":
-                        Console.Clear();
-                        Console.WriteLine("Goodbye");
-                        Console.ReadKey(true);
-                        return;
-=======
-            switch (choice)
-            {
-                case "a":
-                    OptionsManager.Add(a, b);
-                    break;
-                case "s":
-                    OptionsManager.Subtract(a, b);
-                    break;
-                case "m":
-                    OptionsManager.Multiply(a, b);
-                    break;
-                case "d":
-                    OptionsManager.Divide(a, b);
-                    break;
-                case "sabs":
-                    OptionsManager.SubtractAbs(a, b);
-                    break;
->>>>>>> Dev-A
-            }
-            }
-            
 
-            Console.WriteLine("Pres any key to close the app...");
-            Console.ReadKey(true);
+
+
+
+                Console.WriteLine("Pres any key to close the app...");
+                Console.ReadKey(true);
+
+               
+            }
         }
+
         private static bool CheckCredentials()
         {
             Console.Write("Enter password to gain access: ");
